@@ -4,6 +4,7 @@ const express= require ('express');
 //express app
 const app= express();
 const workoutRouter= require('./routes/workouts');
+const userRoutes= require('./routes/user');
 const mongoose = require('mongoose')
 
 //middleware
@@ -17,6 +18,7 @@ app.use((req, res, next)=>{
 
 //routes
 app.use('/api/workouts',workoutRouter); // using router defined in the routes folder
+app.use('/api/user',userRoutes);
 
 //connecting to db
 mongoose.connect(process.env.MONG_URI)
